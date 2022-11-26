@@ -7,6 +7,8 @@ int main()
 {
     struct timeval stop, start;
 
+    
+
     for(int i = 100; i <= 5000; i += 100){
         
         //Improved Method

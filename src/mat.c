@@ -63,7 +63,6 @@ simple_mat* matmul_plain(simple_mat* left_op, simple_mat* right_op)
 
     simple_mat* result = create_empty_matrix(result_row,result_col);
 
-    
     for(int i = 0; i < result_row; i++){
         for(int j = 0; j < result_col; j++){
             result->data[i*result_col+j] = 0.0;
@@ -165,11 +164,11 @@ simple_mat* matmul_BLAS(simple_mat* left_op, simple_mat* right_op)
     int M = left_op->row;
     int N = right_op->column;
     int K = left_op->column;
-    float alpha=1;
-    float beta=0;
-    int lda=M;
-    int ldb=K;
-    int ldc=N;
+    float alpha = 1;
+    float beta = 0;
+    int lda = M;
+    int ldb = K;
+    int ldc = N;
 
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, alpha, left_op->data, lda, right_op->data, ldb, beta, result->data, ldc);
 
